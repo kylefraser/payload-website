@@ -1,27 +1,47 @@
 import React from 'react'
 import RichTextParser from '@/utils/RichTextParser'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import { notFound } from 'next/navigation'
 
 export default async function Blog({ params }: any) {
-  const blog = await getBlog(params)
+  const { slug } = params
+
+  const payload = await getPayload({
+    config: configPromise,
+  })
+
+  const data = await payload.find({
+    collection: 'blog',
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  if (!data?.docs[0]) {
+    notFound()
+  }
+
   return (
     <div>
       <h1>Hello</h1>
-      <RichTextParser content={blog.body} />
+      <RichTextParser content={data.docs[0].body} />
     </div>
   )
 }
 
-export const generateStaticParams = async () => {
-  const blogs = await fetch('http://localhost:3001/api/blog?limit=100').then((res) => res.json())
-
-  return blogs.docs.map(({ slug, id }: any) => {
-    return [{ slug: slug }]
+export async function generateStaticParams() {
+  const payload = await getPayload({
+    config: configPromise,
   })
-}
 
-async function getBlog(params: any) {
-  const res = await fetch(`http://localhost:3001/api/blog?slug=${params.slug}`)
-  const blogs = await res.json()
+  const data = await payload.find({
+    collection: 'blog',
+  })
 
-  return blogs.docs[0]
+  return data.docs.map((post) => ({
+    slug: post.slug,
+  }))
 }

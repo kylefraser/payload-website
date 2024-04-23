@@ -1,13 +1,18 @@
-import Image from 'next/image'
+import { getPayloadHMR } from '@payloadcms/next/utilities'
+import config from '@payload-config'
 import Link from 'next/link'
 
-export default async function Footer() {
-  const data = await getData()
+export default async function Header() {
+  const payload = await getPayloadHMR({ config })
+
+  const footer = await payload.findGlobal({
+    slug: 'footer',
+  })
 
   return (
     <footer className="container mx-auto py-4 px-6 flex justify-between items-center">
       <ul>
-        {data.bottomNavLinks.map((link: any, i: number) => (
+        {footer.bottomNavLinks.map((link: any, i: number) => (
           <li key={link}>
             <Link href={link.link}>{link.label}</Link>
           </li>
@@ -15,14 +20,4 @@ export default async function Footer() {
       </ul>
     </footer>
   )
-}
-
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/globals/footer`)
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return res.json()
 }

@@ -2,13 +2,31 @@ import React from 'react'
 import RenderBlocks from '@/utils/RenderBlocks'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
+import { notFound } from 'next/navigation'
 
 export default async function Page({ params }: any) {
-  console.log(params)
-  const page = await getPage(params)
+  const { slug } = params
+
+  const payload = await getPayload({
+    config: configPromise,
+  })
+
+  const data = await payload.find({
+    collection: 'pages',
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  if (!data?.docs[0]) {
+    notFound()
+  }
+
   return (
     <div>
-      <RenderBlocks layout={page.layout} />
+      <RenderBlocks layout={data.docs[0].layout} />
     </div>
   )
 }
@@ -25,22 +43,4 @@ export const generateStaticParams = async () => {
   return data.docs.map(({ slug, id }: any) => {
     return [{ slug: slug !== 'index' ? slug.split('/') : false }]
   })
-}
-
-async function getPage(params: any) {
-  const payload = await getPayload({
-    config: configPromise,
-  })
-
-  const data = await payload.find({
-    collection: 'pages',
-  })
-
-  const page = data.docs.filter((page) => {
-    return page.slug == params.slug
-  })
-
-  console.log('thepage', page)
-
-  return page[0]
 }
