@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "prebuild": "cross-env NODE_OPTIONS=--no-deprecation node scripts/fetchGlobalData.js",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
@@ -17,6 +18,7 @@
     "node": ">=18.19.0"
   },
   "dependencies": {
+    "@next/env": "^14.2.2",
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
@@ -31,6 +33,7 @@
     "sharp": "0.32.6"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",

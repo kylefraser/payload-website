@@ -1,27 +1,46 @@
 import React from 'react'
 import RenderBlocks from '@/utils/RenderBlocks'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
 
 export default async function Page({ params }: any) {
+  console.log(params)
   const page = await getPage(params)
   return (
     <div>
-      <h1>Hello</h1>
       <RenderBlocks layout={page.layout} />
     </div>
   )
 }
 
 export const generateStaticParams = async () => {
-  const pages = await fetch('http://localhost:3001/api/pages?limit=100').then((res) => res.json())
+  const payload = await getPayload({
+    config: configPromise,
+  })
 
-  return pages.docs.map(({ slug, id }: any) => {
-    return [{ slug: slug }]
+  const data = await payload.find({
+    collection: 'pages',
+  })
+
+  return data.docs.map(({ slug, id }: any) => {
+    return [{ slug: slug !== 'index' ? slug.split('/') : false }]
   })
 }
 
 async function getPage(params: any) {
-  const res = await fetch(`http://localhost:3001/api/pages?slug=${params.slug}`)
-  const pages = await res.json()
+  const payload = await getPayload({
+    config: configPromise,
+  })
 
-  return pages.docs[0]
+  const data = await payload.find({
+    collection: 'pages',
+  })
+
+  const page = data.docs.filter((page) => {
+    return page.slug == params.slug
+  })
+
+  console.log('thepage', page)
+
+  return page[0]
 }

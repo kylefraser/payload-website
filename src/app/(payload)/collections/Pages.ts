@@ -3,7 +3,7 @@ import { Hero } from '../blocks/Hero'
 import { TwoColumn } from '../blocks/TwoColumn'
 import { SimpleRichText } from '../blocks/SimpleRichText'
 
-export const Pages: CollectionConfig = {
+export const Pages = {
   slug: 'pages',
   labels: {
     singular: 'Page',

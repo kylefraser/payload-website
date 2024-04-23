@@ -1,7 +1,7 @@
 import serializeLexicalRichText from '@/utils/serializeLexicalRichText'
 import React from 'react'
 
-export default function ({ className, content, customClassNames }) {
+export default function ({ className, content, customClassNames }: any) {
   if (!content?.root?.children) return ''
 
   return (

@@ -1,9 +1,9 @@
 import React from 'react'
 import RichTextParser from '@/utils/RichTextParser'
 
-export default function SimpleRichText({ body }) {
+export default function SimpleRichText({ body, ...props }: any) {
   return (
-    <div className="py-10 px-6">
+    <div className="container mx-auto py-10 px-6">
       <RichTextParser content={body} />
     </div>
   )
