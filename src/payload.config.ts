@@ -22,7 +22,9 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
+  // @ts-expect-error
   collections: [Blog, Media, Pages, Users],
+  // @ts-expect-error
   globals: [Header, Footer],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
