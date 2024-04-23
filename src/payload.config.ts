@@ -5,6 +5,8 @@ import path from 'path'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
+import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Media } from './app/(payload)/collections/Media'
@@ -16,6 +18,10 @@ import { Footer } from './app/(payload)/globals/Footer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+const adapter = vercelBlobAdapter({
+  token: process.env.BLOB_READ_WRITE_TOKEN || '',
+})
 
 export default buildConfig({
   admin: {
@@ -34,6 +40,16 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  plugins: [
+    //@ts-expect-error
+    cloudStorage({
+      collections: {
+        media: {
+          adapter: adapter, // see docs for the adapter you want to use
+        },
+      },
+    }),
+  ],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
