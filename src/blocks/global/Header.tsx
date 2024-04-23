@@ -12,12 +12,12 @@ export default async function Header() {
 
   return (
     <header className="container mx-auto py-4 px-6 flex justify-between items-center">
-      <Image
+      {/* <Image
         src={header?.logo?.url}
         width={header?.logo?.width / 10}
         height={header?.logo?.height / 10}
         alt={header?.logo?.alt}
-      />
+      /> */}
       <ul>
         {header?.navLinks?.map((link: any, i: number) => (
           <li key={link}>
