@@ -18,9 +18,13 @@ export default async function Header() {
     <header className="container mx-auto py-4 px-6 flex justify-between items-center">
       <Link href={'/'}>
         <Image
+          /* @ts-expect-error */
           src={settings?.logo?.url}
+          /* @ts-expect-error */
           width={settings?.logo?.width / 5}
+          /* @ts-expect-error */
           height={settings?.logo?.height / 5}
+          /* @ts-expect-error */
           alt={settings?.logo?.alt}
         />
       </Link>
