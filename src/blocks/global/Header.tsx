@@ -31,7 +31,7 @@ export default async function Header() {
       <ul>
         {nav?.navLinks?.map((link: any, i: number) => (
           <li key={link}>
-            <Link href={link.link}>{link.label}</Link>
+            <Link href={'/' + link.link}>{link.label}</Link>
           </li>
         ))}
       </ul>
