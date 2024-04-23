@@ -9,13 +9,32 @@ export const Media: CollectionConfig = {
   access: {
     read: () => true,
   },
-  upload: true,
+  upload: {
+    adminThumbnail: ({ doc }) =>
+      `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc.filename}`,
+  },
   fields: [
     {
       name: 'alt',
       label: 'Alt',
       type: 'text',
       required: true,
+    },
+    {
+      name: 'url',
+      type: 'text',
+      access: {
+        create: () => false,
+      },
+      admin: {
+        disabled: true,
+      },
+      hooks: {
+        afterRead: [
+          ({ data: doc }) =>
+            `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc.filename}`,
+        ],
+      },
     },
   ],
 }
