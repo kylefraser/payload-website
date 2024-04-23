@@ -13,8 +13,9 @@ import { Media } from './app/(payload)/collections/Media'
 import { Pages } from './app/(payload)/collections/Pages'
 import { Users } from './app/(payload)/collections/Users'
 
-import { Header } from './app/(payload)/globals/Header'
 import { Footer } from './app/(payload)/globals/Footer'
+import { Nav } from './app/(payload)/globals/Nav'
+import { Settings } from './app/(payload)/globals/Settings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,7 +31,7 @@ export default buildConfig({
   // @ts-expect-error
   collections: [Blog, Media, Pages, Users],
   // @ts-expect-error
-  globals: [Header, Footer],
+  globals: [Nav, Footer, Settings],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
