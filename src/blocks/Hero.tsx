@@ -6,12 +6,14 @@ export default function Hero({ heading, text, backgroundImage, ...props }: any) 
     <div className="container mx-auto py-4 px-6 flex flex-col justify-between items-center">
       <h2 className="text-2xl font-bold">{heading}</h2>
       <p>{text}</p>
-      <Image
-        src={backgroundImage.url}
-        height={backgroundImage.height}
-        width={backgroundImage.width}
-        alt={backgroundImage.alt}
-      />
+      {backgroundImage && (
+        <Image
+          src={backgroundImage.url}
+          height={backgroundImage.height}
+          width={backgroundImage.width}
+          alt={backgroundImage.alt}
+        />
+      )}
     </div>
   )
 }

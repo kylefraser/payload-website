@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload/types'
 import { Hero } from '../blocks/Hero'
 import { TwoColumn } from '../blocks/TwoColumn'
 import { SimpleRichText } from '../blocks/SimpleRichText'
+import formatSlug from '@/utils/formatSlug'
 
 export const Pages = {
   slug: 'pages',
@@ -24,6 +25,12 @@ export const Pages = {
       label: 'Slug',
       type: 'text',
       required: true,
+      admin: {
+        position: 'sidebar',
+      },
+      hooks: {
+        beforeValidate: [formatSlug('title')],
+      },
     },
     {
       name: 'layout',
