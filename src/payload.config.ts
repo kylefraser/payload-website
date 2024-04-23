@@ -41,7 +41,6 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   plugins: [
-    //@ts-expect-error
     cloudStorage({
       collections: {
         media: {
