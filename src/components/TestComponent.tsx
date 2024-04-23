@@ -1,7 +1,7 @@
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 
-export default async function TestCoponent() {
+export default async function TestComponent() {
   const payload = await getPayloadHMR({ config: configPromise })
 
   const users = await payload.find({
@@ -15,6 +15,7 @@ export default async function TestCoponent() {
         return (
           <div key={user.id}>
             <h2>Users</h2>
+            {/* @ts-expect-error */}
             <p>{user.email}</p>
           </div>
         )
