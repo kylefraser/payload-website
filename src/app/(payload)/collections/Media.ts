@@ -32,7 +32,7 @@ export const Media: CollectionConfig = {
       hooks: {
         afterRead: [
           ({ data: doc }) =>
-            `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc.filename}`,
+            `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc?.filename}`,
         ],
       },
     },
