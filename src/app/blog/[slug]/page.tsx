@@ -31,17 +31,3 @@ export default async function Blog({ params }: any) {
     </div>
   )
 }
-
-export async function generateStaticParams() {
-  const payload = await getPayload({
-    config: configPromise,
-  })
-
-  const data = await payload.find({
-    collection: 'blog',
-  })
-
-  return data.docs.map((post) => ({
-    slug: post.slug,
-  }))
-}

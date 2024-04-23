@@ -30,17 +30,3 @@ export default async function Page({ params }: any) {
     </div>
   )
 }
-
-export const generateStaticParams = async () => {
-  const payload = await getPayload({
-    config: configPromise,
-  })
-
-  const data = await payload.find({
-    collection: 'pages',
-  })
-
-  return data.docs.map(({ slug, id }: any) => {
-    return [{ slug: slug !== 'index' ? slug.split('/') : false }]
-  })
-}
