@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/utils/RichTextParser.js",
+    "src/utils/RichTextParser.ts",
     "src/utils/serializeLexicalRichText.js"
   ],
   "exclude": ["node_modules"]
