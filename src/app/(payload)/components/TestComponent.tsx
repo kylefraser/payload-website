@@ -15,7 +15,6 @@ export default async function TestComponent() {
         return (
           <div key={user.id}>
             <h2>Users</h2>
-            {/* @ts-expect-error */}
             <p>{user.email}</p>
           </div>
         )

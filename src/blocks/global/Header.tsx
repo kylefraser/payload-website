@@ -12,7 +12,7 @@ export default async function Header() {
 
   return (
     <header className="container mx-auto py-4 px-6 flex justify-between items-center">
-      {/* <Image
+      <Image
         src={header?.logo?.url}
         width={header?.logo?.width / 10}
         height={header?.logo?.height / 10}
@@ -24,7 +24,7 @@ export default async function Header() {
             <Link href={link.link}>{link.label}</Link>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </header>
   )
 }

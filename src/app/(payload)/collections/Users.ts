@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload/types'
-import TestComponent from '@/components/TestComponent'
+import TestComponent from '@/app/(payload)/components/TestComponent'
 
 export const Users: CollectionConfig = {
   slug: 'users',
