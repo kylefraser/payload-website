@@ -1,4 +1,3 @@
-import './globals.css'
 import Header from '../../blocks/global/Header'
 import Footer from '../../blocks/global/Footer'
 
