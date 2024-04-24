@@ -1,4 +1,3 @@
-import type { CollectionConfig } from 'payload/types'
 import { Hero } from '../blocks/Hero'
 import { TwoColumn } from '../blocks/TwoColumn'
 import { SimpleRichText } from '../blocks/SimpleRichText'
@@ -39,4 +38,9 @@ export const Pages = {
       blocks: [Hero, TwoColumn, SimpleRichText],
     },
   ],
+  versions: {
+    drafts: {
+      autosave: true,
+    },
+  },
 }

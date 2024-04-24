@@ -1,6 +1,4 @@
-import type { CollectionConfig } from 'payload/types'
-
-export const Media: CollectionConfig = {
+export const Media = {
   slug: 'media',
   labels: {
     singular: 'Media',
@@ -10,7 +8,7 @@ export const Media: CollectionConfig = {
     read: () => true,
   },
   upload: {
-    adminThumbnail: ({ doc }) =>
+    adminThumbnail: ({ doc }: any) =>
       `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc.filename}`,
   },
   fields: [
@@ -31,7 +29,7 @@ export const Media: CollectionConfig = {
       },
       hooks: {
         afterRead: [
-          ({ data: doc }) =>
+          ({ data: doc }: any) =>
             `https://pnfmsg5aqelcyhad.public.blob.vercel-storage.com/${doc?.filename}`,
         ],
       },

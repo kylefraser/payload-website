@@ -1,6 +1,4 @@
-import type { CollectionConfig } from 'payload/types'
-
-export const Blog: CollectionConfig = {
+export const Blog = {
   slug: 'blog',
   labels: {
     singular: 'Blog',
@@ -28,4 +26,9 @@ export const Blog: CollectionConfig = {
       type: 'richText',
     },
   ],
+  versions: {
+    drafts: {
+      autosave: true,
+    },
+  },
 }
