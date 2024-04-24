@@ -1,10 +1,13 @@
+import { Hero } from '../blocks/Hero'
+import { TwoColumn } from '../blocks/TwoColumn'
+import { SimpleRichText } from '../blocks/SimpleRichText'
 import formatSlug from '@/utils/formatSlug'
 
-export const Blog = {
-  slug: 'blog',
+export const Events = {
+  slug: 'events',
   labels: {
-    singular: 'Blog',
-    plural: 'Blogs',
+    singular: 'Event',
+    plural: 'Events',
   },
   access: {
     read: () => true,
@@ -34,9 +37,14 @@ export const Blog = {
       type: 'textarea',
     },
     {
-      name: 'body',
-      label: 'Body',
-      type: 'richText',
+      name: 'location',
+      label: 'Location',
+      type: 'text',
+    },
+    {
+      name: 'date',
+      label: 'Date',
+      type: 'date',
     },
   ],
   versions: {

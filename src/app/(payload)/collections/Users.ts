@@ -2,6 +2,10 @@ import TestComponent from '@/app/(payload)/components/TestComponent'
 
 export const Users = {
   slug: 'users',
+  label: {
+    singular: 'User',
+    plural: 'Users',
+  },
   admin: {
     useAsTitle: 'email',
   },
@@ -18,8 +22,20 @@ export const Users = {
       },
     },
     {
-      name: 'description',
-      type: 'richText',
+      name: 'name',
+      label: 'Name',
+      type: 'text',
+    },
+    {
+      name: 'avatar',
+      label: 'Avatar',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
+      name: 'biography',
+      label: 'Biography',
+      type: 'textarea',
     },
   ],
 }

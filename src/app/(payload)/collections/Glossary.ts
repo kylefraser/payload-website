@@ -1,11 +1,8 @@
 import formatSlug from '@/utils/formatSlug'
 
-export const Blog = {
-  slug: 'blog',
-  labels: {
-    singular: 'Blog',
-    plural: 'Blogs',
-  },
+export const Glossary = {
+  slug: 'glossary',
+  labels: 'Glossary',
   access: {
     read: () => true,
   },
@@ -34,9 +31,9 @@ export const Blog = {
       type: 'textarea',
     },
     {
-      name: 'body',
-      label: 'Body',
-      type: 'richText',
+      name: 'definition',
+      label: 'Definition',
+      type: 'textarea',
     },
   ],
   versions: {
