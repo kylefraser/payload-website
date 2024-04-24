@@ -11,6 +11,7 @@ import { seo } from '@payloadcms/plugin-seo'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Events } from './app/(payload)/collections/Events'
+import { Glossary } from './app/(payload)/collections/Glossary'
 import { Media } from './app/(payload)/collections/Media'
 import { Pages } from './app/(payload)/collections/Pages'
 import { Users } from './app/(payload)/collections/Users'
@@ -31,7 +32,7 @@ export default buildConfig({
     user: Users.slug,
   },
   // @ts-expect-error
-  collections: [Pages, Blog, Events, Media, Users],
+  collections: [Pages, Blog, Events, Glossary, Media, Users],
   // @ts-expect-error
   globals: [Settings, Nav, Footer],
   editor: lexicalEditor({}),
