@@ -2,7 +2,7 @@ import TestComponent from '@/app/(payload)/components/TestComponent'
 
 export const Users = {
   slug: 'users',
-  label: {
+  labels: {
     singular: 'User',
     plural: 'Users',
   },

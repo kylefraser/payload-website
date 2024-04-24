@@ -2,7 +2,7 @@ import formatSlug from '@/utils/formatSlug'
 
 export const Glossary = {
   slug: 'glossary',
-  labels: 'Glossary',
+  label: 'Glossary',
   access: {
     read: () => true,
   },
