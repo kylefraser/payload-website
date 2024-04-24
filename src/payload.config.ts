@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 import { seo } from '@payloadcms/plugin-seo'
+import { GenerateTitle, GenerateDescription } from '@payloadcms/plugin-seo/types'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Media } from './app/(payload)/collections/Media'
@@ -51,8 +52,8 @@ export default buildConfig({
     seo({
       collections: ['pages', 'blog'],
       uploadsCollection: 'media',
-      generateTitle: ({ doc }) => `Kilo Payload — ${doc.title.value}`,
-      generateDescription: ({ doc }) => doc.excerpt.value,
+      generateTitle: ({ doc }: GenerateTitle) => `Kilo Payload — ${doc?.title?.value}`,
+      generateDescription: ({ doc }: GenerateDescription) => doc?.excerpt?.value,
     }),
   ],
 
