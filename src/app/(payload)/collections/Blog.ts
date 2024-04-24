@@ -1,3 +1,5 @@
+import formatSlug from '@/utils/formatSlug'
+
 export const Blog = {
   slug: 'blog',
   labels: {
@@ -18,6 +20,18 @@ export const Blog = {
       name: 'slug',
       label: 'Slug',
       type: 'text',
+      required: true,
+      admin: {
+        position: 'sidebar',
+      },
+      hooks: {
+        beforeValidate: [formatSlug('title')],
+      },
+    },
+    {
+      name: 'excerpt',
+      label: 'Excerpt',
+      type: 'textarea',
       required: true,
     },
     {

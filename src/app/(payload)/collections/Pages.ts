@@ -32,6 +32,12 @@ export const Pages = {
       },
     },
     {
+      name: 'excerpt',
+      label: 'Excerpt',
+      type: 'textarea',
+      required: true,
+    },
+    {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
