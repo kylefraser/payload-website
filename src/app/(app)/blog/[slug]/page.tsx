@@ -8,10 +8,13 @@ import { PageTemplate } from './page.client'
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { slug } = params
+
   let page
+
   const payload = await getPayload({
     config: configPromise,
   })
+
   try {
     page = await payload.find({
       collection: 'blog',
@@ -23,6 +26,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
           equals: 'published',
         },
       },
+      limit: 1,
     })
   } catch (error) {}
 
@@ -43,9 +47,8 @@ export default async function Blog({ params }: any) {
         equals: slug,
       },
     },
+    limit: 100,
   })
-
-  console.log(data)
 
   if (!data?.docs[0]) {
     notFound()

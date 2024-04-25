@@ -9,8 +9,6 @@ export const PageTemplate = ({ page }: any) => {
     initialData: page,
   })
 
-  console.log(data)
-
   return (
     <div>
       {data.title}

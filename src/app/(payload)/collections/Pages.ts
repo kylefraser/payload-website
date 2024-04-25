@@ -1,6 +1,7 @@
 import { Hero } from '../blocks/Hero'
 import { TwoColumn } from '../blocks/TwoColumn'
 import { SimpleRichText } from '../blocks/SimpleRichText'
+import { FormBlock } from '../blocks/Form'
 import formatSlug from '@/utils/formatSlug'
 
 export const Pages = {
@@ -45,7 +46,7 @@ export const Pages = {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
-      blocks: [Hero, TwoColumn, SimpleRichText],
+      blocks: [Hero, TwoColumn, SimpleRichText, FormBlock],
     },
   ],
   versions: {

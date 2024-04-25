@@ -5,10 +5,14 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { generateMeta } from '../../../utils/generateMeta'
 import { PageTemplate } from './page.client'
+import { EmailTemplate } from '../../../components/EmailTemplate'
+import { Resend } from 'resend'
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { slug } = params
+
   let page
+
   const payload = await getPayload({
     config: configPromise,
   })
@@ -24,10 +28,24 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
           equals: 'published',
         },
       },
+      limit: 1,
     })
   } catch (error) {}
 
   return generateMeta({ doc: page?.docs[0] })
+}
+
+export async function send(name, email, subject) {
+  'use server'
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
+
+  const { data } = await resend.emails.send({
+    from: 'Acme <onboarding@resend.dev>',
+    to: email,
+    subject: subject,
+    react: EmailTemplate({ firstName: name }),
+  })
 }
 
 export default async function Page({ params }: any) {
@@ -44,13 +62,12 @@ export default async function Page({ params }: any) {
         equals: slug,
       },
     },
+    limit: 100,
   })
-
-  console.log(data)
 
   if (!data?.docs[0]) {
     return notFound()
   }
 
-  return <PageTemplate page={data?.docs[0]} />
+  return <PageTemplate page={data?.docs[0]} send={send} />
 }

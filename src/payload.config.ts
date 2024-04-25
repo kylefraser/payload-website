@@ -9,6 +9,7 @@ import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 import { seo } from '@payloadcms/plugin-seo'
 import { redirects } from '@payloadcms/plugin-redirects'
+import formBuilder from '@payloadcms/plugin-form-builder'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Events } from './app/(payload)/collections/Events'
@@ -102,6 +103,15 @@ export default buildConfig({
     }),
     redirects({
       collections: ['pages'],
+    }),
+    formBuilder({
+      fields: {
+        text: true,
+        textarea: true,
+        select: true,
+        email: true,
+        message: true,
+      },
     }),
   ],
 
