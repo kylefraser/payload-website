@@ -1,4 +1,4 @@
-import TestComponent from '@/app/(payload)/components/TestComponent'
+// import TestComponent from '@/app/(payload)/components/TestComponent'
 
 export const Users = {
   slug: 'users',
@@ -11,16 +11,16 @@ export const Users = {
   },
   auth: true,
   fields: [
-    {
-      name: 'test',
-      label: 'Test component',
-      type: 'ui',
-      admin: {
-        components: {
-          Field: TestComponent,
-        },
-      },
-    },
+    // {
+    //   name: 'test',
+    //   label: 'Test component',
+    //   type: 'ui',
+    //   admin: {
+    //     components: {
+    //       Field: TestComponent,
+    //     },
+    //   },
+    // },
     {
       name: 'name',
       label: 'Name',

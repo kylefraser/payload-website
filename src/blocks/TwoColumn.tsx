@@ -3,12 +3,12 @@ import React from 'react'
 
 export default function TwoColumn({ heading, text, backgroundImage, direction, ...props }: any) {
   return (
-    <div className="container flex flex-row mx-auto py-4 px-6">
-      <div className="flex-[50%]">
-        <h2>{heading}</h2>
-        <p>{text}</p>
+    <div className="container grid grid-cols-12 bg-gray-200 mx-auto py-20 px-6 justify-between items-center">
+      <div className="col-span-6">
+        <h2 className="text-4xl font-bold">{heading}</h2>
+        <p className="text-base">{text}</p>
       </div>
-      <div className="flex-[50%]">
+      <div className="col-span-6 flex justify-center items-center">
         <Image
           src={backgroundImage.url}
           width={backgroundImage.width}

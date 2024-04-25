@@ -28,9 +28,9 @@ export default async function Header() {
           alt={settings?.logo?.alt}
         />
       </Link>
-      <ul>
+      <ul className="flex flex-row gap-4 items-center">
         {nav?.navLinks?.map((link: any, i: number) => (
-          <li key={link}>
+          <li key={link.label}>
             <Link href={'/' + link.link}>{link.label}</Link>
           </li>
         ))}
