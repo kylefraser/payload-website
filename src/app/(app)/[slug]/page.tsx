@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const payload = await getPayload({
     config: configPromise,
   })
+
   try {
     page = await payload.find({
       collection: 'pages',
@@ -44,6 +45,8 @@ export default async function Page({ params }: any) {
       },
     },
   })
+
+  console.log(data)
 
   if (!data?.docs[0]) {
     return notFound()

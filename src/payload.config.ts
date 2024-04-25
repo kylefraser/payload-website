@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 import { seo } from '@payloadcms/plugin-seo'
-import redirects from '@payloadcms/plugin-redirects'
+import { redirects } from '@payloadcms/plugin-redirects'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Events } from './app/(payload)/collections/Events'
@@ -54,8 +54,29 @@ export default buildConfig({
       ],
     },
   },
-  collections: [Pages, Blog, Events, Glossary, Media, Users],
-  globals: [Settings, Nav, Footer],
+
+  collections: [
+    // @ts-expect-error
+    Pages,
+    // @ts-expect-error
+    Blog,
+    // @ts-expect-error
+    Events,
+    // @ts-expect-error
+    Glossary,
+    // @ts-expect-error
+    Media,
+    // @ts-expect-error
+    Users,
+  ],
+  globals: [
+    // @ts-expect-error
+    Settings,
+    // @ts-expect-error
+    Nav,
+    // @ts-expect-error
+    Footer,
+  ],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
@@ -79,9 +100,9 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => `Kilo Payload — ${doc?.title?.value}`,
       generateDescription: ({ doc }: any) => doc?.excerpt?.value,
     }),
-    // redirects({
-    //   collections: ['pages'],
-    // }),
+    redirects({
+      collections: ['pages'],
+    }),
   ],
 
   // Sharp is now an optional dependency -

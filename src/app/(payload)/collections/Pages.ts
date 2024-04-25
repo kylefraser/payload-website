@@ -14,7 +14,7 @@ export const Pages = {
   },
   admin: {
     livePreview: {
-      url: ({ data }: any) => `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/${data.slug}`,
+      url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/${data.slug}`,
     },
   },
   fields: [

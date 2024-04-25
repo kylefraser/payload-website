@@ -11,7 +11,7 @@ export const Blog = {
   },
   admin: {
     livePreview: {
-      url: ({ data }: any) => `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/blog/${data.slug}`,
+      url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/blog/${data.slug}`,
     },
   },
   fields: [
