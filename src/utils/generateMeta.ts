@@ -16,7 +16,7 @@ export const generateMeta = async (args: { doc: any }): Promise<Metadata> => {
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       title: doc?.meta?.title || 'Payload',
-      description: doc?.meta?.description || 'Description',
+      description: doc?.meta?.description,
       url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
       images: ogImage
         ? [

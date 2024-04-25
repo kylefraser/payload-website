@@ -12,6 +12,11 @@ export const Pages = {
   access: {
     read: () => true,
   },
+  admin: {
+    livePreview: {
+      url: ({ data }: any) => `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/${data.slug}`,
+    },
+  },
   fields: [
     {
       name: 'title',
@@ -44,8 +49,6 @@ export const Pages = {
     },
   ],
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true,
   },
 }

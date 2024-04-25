@@ -19,9 +19,11 @@
   "dependencies": {
     "@next/env": "^14.2.2",
     "@payloadcms/db-mongodb": "beta",
+    "@payloadcms/live-preview-react": "beta",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/plugin-cloud-storage": "beta",
+    "@payloadcms/plugin-redirects": "beta",
     "@payloadcms/plugin-seo": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "@vercel/blob": "^0.23.2",

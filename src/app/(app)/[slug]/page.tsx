@@ -1,12 +1,13 @@
 import React from 'react'
-import RenderBlocks from '@/utils/RenderBlocks'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { notFound } from 'next/navigation'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import { generateMeta } from '../../../utils/generateMeta'
+import { PageTemplate } from './page.client'
 
-export async function generateMetadata({ params: { slug = 'home' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { slug } = params
   let page
   const payload = await getPayload({
     config: configPromise,
@@ -18,16 +19,14 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
         slug: {
           equals: slug,
         },
+        _status: {
+          equals: 'published',
+        },
       },
     })
-  } catch (error) {
-    // don't throw an error if the fetch fails
-    // this is so that we can render static fallback pages for the demo
-    // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
-    // in production you may want to redirect to a 404  page or at least log the error somewhere
-  }
+  } catch (error) {}
 
-  return generateMeta({ doc: page })
+  return generateMeta({ doc: page?.docs[0] })
 }
 
 export default async function Page({ params }: any) {
@@ -47,12 +46,8 @@ export default async function Page({ params }: any) {
   })
 
   if (!data?.docs[0]) {
-    notFound()
+    return notFound()
   }
 
-  return (
-    <div>
-      <RenderBlocks layout={data.docs[0].layout} />
-    </div>
-  )
+  return <PageTemplate page={data?.docs[0]} />
 }

@@ -40,8 +40,6 @@ export const Glossary = {
     },
   ],
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true,
   },
 }

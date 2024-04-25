@@ -1,36 +1,42 @@
 import React from 'react'
-import { getPayloadHMR } from '@payloadcms/next/utilities'
-import config from '@payload-config'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { generateMeta } from '../../../utils/generateMeta'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-export async function generateMetadata({ params: { slug = 'home' } }): Promise<Metadata> {
-  let page
-  const payload = await getPayload({
-    config: configPromise,
-  })
-  try {
-    page = await payload.find({
-      collection: 'blog',
-    })
-  } catch (error) {
-    // don't throw an error if the fetch fails
-    // this is so that we can render static fallback pages for the demo
-    // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
-    // in production you may want to redirect to a 404  page or at least log the error somewhere
-  }
+//TODO: Make this for a page
+// export async function generateMetadata(): Promise<Metadata> {
+//   let page
+//   const payload = await getPayload({
+//     config: configPromise,
+//   })
+//   try {
+//     page = await payload.find({
+//       collection: 'blog',
+//       where: {
+//         _status: {
+//           equals: 'published',
+//         },
+//       },
+//     })
+//   } catch (error) {}
 
-  return generateMeta({ doc: page })
-}
+//   console.log('page', page)
+
+//   return generateMeta({ doc: page })
+// }
 
 export default async function Blog() {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config: configPromise })
 
   const blogPosts = await payload.find({
     collection: 'blog',
+    where: {
+      _status: {
+        equals: 'published',
+      },
+    },
   })
 
   return (

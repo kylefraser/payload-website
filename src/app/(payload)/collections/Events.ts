@@ -48,8 +48,6 @@ export const Events = {
     },
   ],
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true,
   },
 }

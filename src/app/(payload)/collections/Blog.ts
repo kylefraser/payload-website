@@ -9,6 +9,11 @@ export const Blog = {
   access: {
     read: () => true,
   },
+  admin: {
+    livePreview: {
+      url: ({ data }: any) => `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/blog/${data.slug}`,
+    },
+  },
   fields: [
     {
       name: 'title',
@@ -40,8 +45,6 @@ export const Blog = {
     },
   ],
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true,
   },
 }

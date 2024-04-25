@@ -1,8 +1,33 @@
 import React from 'react'
-import RichTextParser from '@/utils/RichTextParser'
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
+import { generateMeta } from '../../../../utils/generateMeta'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import { notFound } from 'next/navigation'
+import { PageTemplate } from './page.client'
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { slug } = params
+  let page
+  const payload = await getPayload({
+    config: configPromise,
+  })
+  try {
+    page = await payload.find({
+      collection: 'blog',
+      where: {
+        slug: {
+          equals: slug,
+        },
+        _status: {
+          equals: 'published',
+        },
+      },
+    })
+  } catch (error) {}
+
+  return generateMeta({ doc: page?.docs[0] })
+}
 
 export default async function Blog({ params }: any) {
   const { slug } = params
@@ -20,14 +45,11 @@ export default async function Blog({ params }: any) {
     },
   })
 
+  console.log(data)
+
   if (!data?.docs[0]) {
     notFound()
   }
 
-  return (
-    <div>
-      <h1>Hello</h1>
-      <RichTextParser content={data.docs[0].body} />
-    </div>
-  )
+  return <PageTemplate page={data?.docs[0]} />
 }

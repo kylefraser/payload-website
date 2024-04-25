@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 import { seo } from '@payloadcms/plugin-seo'
+import redirects from '@payloadcms/plugin-redirects'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Events } from './app/(payload)/collections/Events'
@@ -30,10 +31,30 @@ const adapter = vercelBlobAdapter({
 export default buildConfig({
   admin: {
     user: Users.slug,
+    livePreview: {
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+        {
+          label: 'Tablet',
+          name: 'tablet',
+          width: 768,
+          height: 1024,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
   },
-  // @ts-expect-error
   collections: [Pages, Blog, Events, Glossary, Media, Users],
-  // @ts-expect-error
   globals: [Settings, Nav, Footer],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
@@ -58,6 +79,9 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => `Kilo Payload — ${doc?.title?.value}`,
       generateDescription: ({ doc }: any) => doc?.excerpt?.value,
     }),
+    // redirects({
+    //   collections: ['pages'],
+    // }),
   ],
 
   // Sharp is now an optional dependency -
