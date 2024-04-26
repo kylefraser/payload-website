@@ -13,7 +13,7 @@ const button = tv({
       lg: 'px-8 py-3 text-[17px] h-[48px]',
     },
     outline: {
-      true: 'border hover:bg-white hover:text-black',
+      true: 'border border-[currentColor] bg-transparent text-[currentColor] hover:bg-white hover:text-black',
     },
   },
   defaultVariants: {

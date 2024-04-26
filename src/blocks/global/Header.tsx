@@ -21,11 +21,12 @@ export default async function Header() {
           /* @ts-expect-error */
           src={settings?.logo?.url}
           /* @ts-expect-error */
-          width={settings?.logo?.width / 5}
+          width={settings?.logo?.width}
           /* @ts-expect-error */
-          height={settings?.logo?.height / 5}
+          height={settings?.logo?.height}
           /* @ts-expect-error */
           alt={settings?.logo?.alt}
+          className="brightness-0 dark:brightness-100"
         />
       </Link>
       <ul className="flex flex-row gap-4 items-center">
