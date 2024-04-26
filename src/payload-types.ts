@@ -261,7 +261,12 @@ export interface Form {
     [k: string]: unknown;
   } | null;
   redirect?: {
-    url: string;
+    type?: ('reference' | 'custom') | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    url?: string | null;
   };
   emails?:
     | {
