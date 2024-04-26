@@ -9,6 +9,7 @@ import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { vercelBlobAdapter } from '@payloadcms/plugin-cloud-storage/vercelBlob'
 import { seo } from '@payloadcms/plugin-seo'
 import { redirects } from '@payloadcms/plugin-redirects'
+//@ts-expect-error
 import formBuilder from '@payloadcms/plugin-form-builder'
 
 import { Blog } from './app/(payload)/collections/Blog'
