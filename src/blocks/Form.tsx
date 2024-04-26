@@ -3,8 +3,8 @@
 import React from 'react'
 import { useState, useCallback } from 'react'
 import { buildInitialFormState } from './buildInitialFormState'
-import { fields } from './fields'
-import RichText from './SimpleRichText'
+import { fields } from '../components/Form/fields'
+import SimpleRichText from './SimpleRichText'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { Button } from '../components/Button'
@@ -135,9 +135,9 @@ export const FormBlock: React.FC<
   return (
     <div className="w-[700px] shadow-xl rounded-xl h-[500px] mx-auto">
       <div>
-        {enableIntro && introContent && !hasSubmitted && <RichText content={introContent} />}
+        {enableIntro && introContent && !hasSubmitted && <SimpleRichText body={introContent} />}
         {!isLoading && hasSubmitted && confirmationType === 'message' && (
-          <RichText content={confirmationMessage} />
+          <SimpleRichText body={confirmationMessage} />
         )}
         {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
         {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}

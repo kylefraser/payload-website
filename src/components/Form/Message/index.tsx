@@ -1,4 +1,4 @@
-import SimpleRichText from '../../blocks/SimpleRichText'
+import SimpleRichText from '../../../blocks/SimpleRichText'
 import { Width } from '../Width'
 
 export const Message: React.FC = ({ message }: any) => {

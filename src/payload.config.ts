@@ -22,6 +22,8 @@ import { Users } from './app/(payload)/collections/Users'
 import { Footer } from './app/(payload)/globals/Footer'
 import { Nav } from './app/(payload)/globals/Nav'
 import { Settings } from './app/(payload)/globals/Settings'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -56,7 +58,19 @@ export default buildConfig({
       ],
     },
   },
-
+  email: nodemailerAdapter({
+    defaultFromAddress: 'kyle@gooutland.com',
+    defaultFromName: 'Test Name',
+    transport: await nodemailer.createTransport({
+      host: 'smtp.resend.com',
+      secure: true,
+      port: 465,
+      auth: {
+        user: 'resend',
+        pass: `${process.env.RESEND_API_KEY}`,
+      },
+    }),
+  }),
   collections: [
     // @ts-expect-error
     Pages,
