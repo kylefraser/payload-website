@@ -60,11 +60,39 @@ const Card = () => {
         </span>{' '}
         for the New Wave of American Outdoor Enthusiast.
       </h2>
-      <div className="col-span-9 grid grid-cols-4 auto-rows-min">
-        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
-        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
-        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
-        <div className="bg-[#050E05] opacity-50 w-full h-[420px]"></div>
+      <div className="col-span-9 grid grid-cols-4 auto-rows-min gap-4">
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
+          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
+          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
+          <p className="text-white">
+            This is some long generic paragraph text that I'm just making up to fill in the space.
+          </p>
+          <a href="/">Learn more</a>
+        </div>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
+          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
+          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
+          <p className="text-white">
+            This is some long generic paragraph text that I'm just making up to fill in the space.
+          </p>
+          <a href="/">Learn more</a>
+        </div>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
+          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
+          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
+          <p className="text-white">
+            This is some long generic paragraph text that I'm just making up to fill in the space.
+          </p>
+          <a href="/">Learn more</a>
+        </div>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
+          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
+          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
+          <p className="text-white">
+            This is some long generic paragraph text that I'm just making up to fill in the space.
+          </p>
+          <a href="/">Learn more</a>
+        </div>
       </div>
       {/* TODO: Video */}
       {/* <div className="col-span-12">
