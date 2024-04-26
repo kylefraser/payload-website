@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return generateMeta({ doc: page?.docs[0] })
 }
 
-export async function send(name, email, subject) {
+async function send(name: string, email: string, subject: string) {
   'use server'
 
   const resend = new Resend(process.env.RESEND_API_KEY)
