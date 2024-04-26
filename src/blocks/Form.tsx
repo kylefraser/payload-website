@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useState, useCallback } from 'react'
 import { buildInitialFormState } from './buildInitialFormState'
 import { fields } from './fields'
@@ -32,12 +33,18 @@ export const FormBlock: React.FC<
   FormBlockType & {
     id?: string
   }
-> = (props) => {
+> = (props: any) => {
   const {
     enableIntro,
     introContent,
     form: formFromProps,
-    form: { id: formID, submitButtonLabel, confirmationType, redirect, confirmationMessage } = {},
+    form: {
+      id: formID = '',
+      submitButtonLabel = '',
+      confirmationType = '',
+      redirect = '',
+      confirmationMessage = '',
+    } = {},
   } = props
 
   const formMethods = useForm({
@@ -88,6 +95,7 @@ export const FormBlock: React.FC<
 
           const res = await req.json()
 
+          // @ts-expect-error
           clearTimeout(loadingTimerID)
 
           if (req.status >= 400) {
@@ -139,6 +147,7 @@ export const FormBlock: React.FC<
               {formFromProps &&
                 formFromProps.fields &&
                 formFromProps.fields.map((field: any, index: any) => {
+                  //@ts-expect-error
                   const Field: React.FC<any> = fields?.[field.blockType]
                   if (Field) {
                     return (
