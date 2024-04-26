@@ -1,17 +1,12 @@
-import React, { useState } from 'react'
-import { UseFormRegister, FieldErrorsImpl, FieldValues } from 'react-hook-form'
+import { useState } from 'react'
 import { Error } from '../Error'
 import { Width } from '../Width'
 
 export const Checkbox: React.FC<{
-  register: UseFormRegister<FieldValues & any>
+  register: any
   setValue: any
   getValues: any
-  errors: Partial<
-    FieldErrorsImpl<{
-      [x: string]: any
-    }>
-  >
+  errors: any
 }> = ({
   name,
   label,
@@ -21,7 +16,7 @@ export const Checkbox: React.FC<{
   getValues,
   required: requiredFromProps,
   errors,
-}) => {
+}: any) => {
   const [checked, setChecked] = useState(false)
 
   const isCheckboxChecked = getValues(name)

@@ -1,4 +1,3 @@
-import React from 'react'
 import RichTextParser from '@/utils/RichTextParser'
 
 export default function SimpleRichText({ body, ...props }: any) {

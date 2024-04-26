@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { buildInitialFormState } from './buildInitialFormState'
 import { fields } from './fields'
 import RichText from './SimpleRichText'

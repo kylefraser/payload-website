@@ -1,18 +1,13 @@
-import React from 'react'
 import ReactSelect from 'react-select'
-import { Controller, Control, FieldValues, FieldErrorsImpl } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 import { stateOptions } from './options'
 import { Error } from '../Error'
 import { Width } from '../Width'
 
 export const State: React.FC<{
-  control: Control<FieldValues, any>
-  errors: Partial<
-    FieldErrorsImpl<{
-      [x: string]: any
-    }>
-  >
-}> = ({ name, label, width, control, required, errors }) => {
+  control: any
+  errors: any
+}> = ({ name, label, width, control, required, errors }: any) => {
   return (
     <Width width={width}>
       <div>
@@ -22,12 +17,12 @@ export const State: React.FC<{
           rules={{ required }}
           name={name}
           defaultValue=""
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange, value } }: any) => (
             <ReactSelect
               instanceId={name}
               options={stateOptions}
               value={stateOptions.find((t) => t.value === value)}
-              onChange={(val) => onChange(val.value)}
+              onChange={(val) => onChange(val?.value)}
               classNamePrefix="rs"
               id={name}
             />

@@ -1,16 +1,10 @@
-import React from 'react'
-import { UseFormRegister, FieldValues, FieldErrorsImpl } from 'react-hook-form'
 import { Error } from '../Error'
 import { Width } from '../Width'
 
 export const Email: React.FC<{
-  register: UseFormRegister<FieldValues & any>
-  errors: Partial<
-    FieldErrorsImpl<{
-      [x: string]: any
-    }>
-  >
-}> = ({ name, width, label, register, required: requiredFromProps, errors }) => {
+  register: any
+  errors: any
+}> = ({ name, width, label, register, required: requiredFromProps, errors }: any) => {
   return (
     <Width width={width}>
       <div className="bg-green-400 flex flex-col">
