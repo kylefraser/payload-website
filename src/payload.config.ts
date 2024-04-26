@@ -112,6 +112,7 @@ export default buildConfig({
         email: true,
         message: true,
       },
+      redirectRelationships: ['pages'],
     }),
   ],
 

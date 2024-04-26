@@ -40,7 +40,7 @@ async function send(name: string, email: string, subject: string) {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
-  const { data } = await resend.emails.send({
+  await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
     to: email,
     subject: subject,
