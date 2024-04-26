@@ -11,6 +11,8 @@ import { seo } from '@payloadcms/plugin-seo'
 import { redirects } from '@payloadcms/plugin-redirects'
 //@ts-expect-error
 import formBuilder from '@payloadcms/plugin-form-builder'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 import { Blog } from './app/(payload)/collections/Blog'
 import { Events } from './app/(payload)/collections/Events'
@@ -22,15 +24,9 @@ import { Users } from './app/(payload)/collections/Users'
 import { Footer } from './app/(payload)/globals/Footer'
 import { Nav } from './app/(payload)/globals/Nav'
 import { Settings } from './app/(payload)/globals/Settings'
-import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-import nodemailer from 'nodemailer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-
-const adapter = vercelBlobAdapter({
-  token: process.env.BLOB_READ_WRITE_TOKEN || '',
-})
 
 export default buildConfig({
   admin: {
@@ -106,7 +102,9 @@ export default buildConfig({
     cloudStorage({
       collections: {
         media: {
-          adapter: adapter, // see docs for the adapter you want to use
+          adapter: vercelBlobAdapter({
+            token: process.env.BLOB_READ_WRITE_TOKEN || '',
+          }),
         },
       },
     }),

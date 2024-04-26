@@ -9,6 +9,11 @@
     "type": "page",
     "href": "/docs/about"
   },
+  "outland": {
+    "title": "goOutland.com",
+    "type": "page",
+    "href": "/"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
