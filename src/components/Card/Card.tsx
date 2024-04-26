@@ -13,7 +13,7 @@ const Card = () => {
     const updateMousePosition = (e: any) => {
       var theRef = ref?.current.getBoundingClientRect()
 
-      setMenuPosition({ top: e.clientY - theRef.top - 10, left: e.clientX - theRef.left - 10 })
+      setMenuPosition({ top: e.clientY - theRef.top + 1000, left: e.clientX - theRef.left + 1000 })
     }
     ref?.current.addEventListener('mousemove', updateMousePosition)
     return () => {
@@ -22,18 +22,49 @@ const Card = () => {
   }, [])
 
   return (
-    <div className="relative overflow-hidden  w-[300px] border border-gray-100" ref={ref}>
-      <h2
-        className="text-4xl font-bold bg-clip-text"
+    <div className="grid grid-cols-12 relative gap-y-10" ref={ref}>
+      <div
         style={{
-          background: `radial-gradient(circle at center,#dfedf4 0,#628699 20%,#628699 100%)`,
+          background: `radial-gradient(circle at center,#A7FFA9  0,#090D01 20%,#090D01 100%)`,
+          backgroundPosition: '-101vw -18vw',
+          filter: 'blur(400px)',
+          zIndex: '-1',
+        }}
+        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-30"
+      ></div>
+      <h2
+        className="text-6xl font-bold bg-clip-text col-span-7"
+        style={{
+          background: `radial-gradient(circle at center,#64D46B 0,#112C13 20%,#112C13 100%)`,
           backgroundPosition: `${menuPosition.left}px ${menuPosition.top}px`,
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
+          backgroundSize: '100vw 100vw',
         }}
       >
-        This is some text
+        The{' '}
+        <span className="text-[#A7FFA9] ," style={{ WebkitTextFillColor: '#A7FFA9' }}>
+          next-generation platform
+        </span>{' '}
+        for the New Wave of American Outdoor Enthusiast.
       </h2>
+      <div className="col-span-8 grid grid-cols-4 auto-rows-min">
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-b"></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
+        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] "></div>
+      </div>
+      {/* TODO: Video */}
+      {/* <div className="col-span-12">
+        <video autoPlay controls loop style={{ width: '100vw', height: '100vw' }}>
+          <source src="/video.mp4" />
+        </video>
+      </div> */}
+      <div className="h-[1600px] w-[400px]"></div>
     </div>
   )
 }

@@ -9,6 +9,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,md,mdx}',
     './src/blocks/**/*.{js,ts,jsx,tsx,md,mdx}',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-outfit)'],
+      },
+    },
+  },
   plugins: [],
 }

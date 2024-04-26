@@ -15,7 +15,7 @@ export default async function Header() {
   })
 
   return (
-    <header className="container mx-auto py-4 px-6 flex justify-between items-center">
+    <header className="container mx-auto py-6 px-6 flex justify-between items-center">
       <Link href={'/'}>
         <Image
           /* @ts-expect-error */
