@@ -1,4 +1,10 @@
+import nextra from 'nextra'
 import { withPayload } from '@payloadcms/next/withPayload'
+
+const withNextra = nextra({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx',
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,4 +19,4 @@ const nextConfig = {
   },
 }
 
-export default withPayload(nextConfig)
+export default withNextra(withPayload(nextConfig))
