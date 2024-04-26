@@ -1,6 +1,4 @@
-import { Block } from 'payload/types'
-
-export const FormBlock: Block = {
+export const FormBlock = {
   slug: 'formBlock',
   labels: {
     singular: 'Form Block',
