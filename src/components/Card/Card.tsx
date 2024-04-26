@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 const Card = () => {
@@ -48,16 +49,19 @@ const Card = () => {
         </span>{' '}
         for the New Wave of American Outdoor Enthusiast.
       </h2>
-      <div className="col-span-8 grid grid-cols-4 auto-rows-min">
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 border-b"></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-b"></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] border-r border-color-green-100 "></div>
-        <div className="bg-black opacity-10 w-full h-[300px] border-[#A7FFA9] "></div>
+      <div className="col-span-9 grid grid-cols-4 auto-rows-min">
+        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
+        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
+        <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
+        <div className="bg-[#050E05] opacity-50 w-full h-[420px]"></div>
       </div>
+      <Image
+        src="/images/bee.webp"
+        className="col-span-5 col-start-12 sepia invert mix-blend-exclusion absolute top-0 right-0] animate-glide"
+        alt="Bee"
+        width="100"
+        height="80"
+      />
       {/* TODO: Video */}
       {/* <div className="col-span-12">
         <video autoPlay controls loop style={{ width: '100vw', height: '100vw' }}>
