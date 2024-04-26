@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button'
+import { Card } from '@/components/Card'
 import Image from 'next/image'
 
 export default function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
@@ -24,9 +25,9 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
       )}
       {!layout && (
         <>
-          <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col justify-center text-center gap-8">
+          <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col justify-center items-center text-center gap-8">
             <div className="flex flex-col gap-4">
-              <h2 className="text-4xl font-bold">{heading}</h2>
+              <h1 className="text-5xl font-bold">{heading}</h1>
               <p className="text-base">{text}</p>
             </div>
             <div className="flex flex-row gap-4">
@@ -45,6 +46,9 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
               />
             </div>
           )}
+          <div className="col-span-12">
+            <Card />
+          </div>
         </>
       )}
     </section>

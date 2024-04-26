@@ -8,8 +8,6 @@ const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, systemTheme } = useTheme()
 
-  console.log(theme, systemTheme)
-
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true)
