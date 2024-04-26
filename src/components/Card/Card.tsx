@@ -55,20 +55,12 @@ const Card = () => {
         <div className="bg-[#050E05] opacity-50 w-full h-[420px] border-[#0F1A10] border-r "></div>
         <div className="bg-[#050E05] opacity-50 w-full h-[420px]"></div>
       </div>
-      <Image
-        src="/images/bee.webp"
-        className="col-span-5 col-start-12 sepia invert mix-blend-exclusion absolute top-0 right-0] animate-glide"
-        alt="Bee"
-        width="100"
-        height="80"
-      />
       {/* TODO: Video */}
       {/* <div className="col-span-12">
         <video autoPlay controls loop style={{ width: '100vw', height: '100vw' }}>
           <source src="/video.mp4" />
         </video>
       </div> */}
-      <div className="h-[1600px] w-[400px]"></div>
     </div>
   )
 }

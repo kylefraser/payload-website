@@ -57,9 +57,6 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
               />
             </div>
           )}
-          <div className="col-span-12 py-20">
-            <Card />
-          </div>
         </>
       )}
     </section>
