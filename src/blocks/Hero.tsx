@@ -35,6 +35,7 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
                   // backgroundClip: 'text',
                   // backgroundSize: '100% 100%',
                   color: '#64D46B',
+                  textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)',
                 }}
               >
                 {heading}
@@ -59,6 +60,9 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
           )}
         </>
       )}
+      <div className="col-span-12">
+        <Card />
+      </div>
     </section>
   )
 }

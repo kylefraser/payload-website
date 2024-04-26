@@ -11,16 +11,21 @@ const Card = () => {
   })
 
   useEffect(() => {
-    const updateMousePosition = (e: any) => {
-      var theRef = ref?.current.getBoundingClientRect()
+    if (ref?.current) {
+      const updateMousePosition = (e: any) => {
+        var theRef = ref?.current.getBoundingClientRect()
 
-      setMenuPosition({ top: e.clientY - theRef.top + 1000, left: e.clientX - theRef.left + 1000 })
+        setMenuPosition({
+          top: e.clientY - theRef.top + 1000,
+          left: e.clientX - theRef.left + 1000,
+        })
+      }
+      ref?.current?.addEventListener('mousemove', updateMousePosition)
+      return () => {
+        ref?.current?.removeEventListener('mousemove', updateMousePosition)
+      }
     }
-    ref?.current.addEventListener('mousemove', updateMousePosition)
-    return () => {
-      ref?.current.removeEventListener('mousemove', updateMousePosition)
-    }
-  }, [])
+  }, [ref])
 
   return (
     <div className="grid grid-cols-12 relative gap-y-10" ref={ref}>
@@ -44,7 +49,13 @@ const Card = () => {
         }}
       >
         The{' '}
-        <span className="text-[#A7FFA9] ," style={{ WebkitTextFillColor: '#A7FFA9' }}>
+        <span
+          className="text-[#A7FFA9]"
+          style={{
+            WebkitTextFillColor: '#A7FFA9',
+            textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)',
+          }}
+        >
           next-generation platform
         </span>{' '}
         for the New Wave of American Outdoor Enthusiast.
