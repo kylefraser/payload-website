@@ -4,12 +4,7 @@
   "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
+    "display": "hidden",
     "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
   }
 }

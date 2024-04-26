@@ -1,10 +1,13 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "docs": {
+    "title": "Docs",
+    "display": "hidden",
+    "type": "page"
+  },
   "about": {
     "title": "About",
-    "type": "page"
+    "type": "page",
+    "href": "/docs/about"
   },
   "contact": {
     "title": "Contact ↗",
