@@ -1,4 +1,3 @@
-import React from 'react'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { notFound } from 'next/navigation'
@@ -40,6 +39,7 @@ async function send(name: string, email: string, subject: string) {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
+  // @ts-expect-error
   await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
     to: email,
