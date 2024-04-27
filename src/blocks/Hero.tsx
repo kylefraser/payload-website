@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
+import posthog from 'posthog-js'
 
 export default function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
   return (
@@ -79,10 +80,15 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
       <div className="col-span-12 py-40">
         <Card />
       </div>
-
-      <div className="col-span-12 py-40 flex flex-reverse">
-        <Card reverse={true} />
-      </div>
+      {posthog.getFeatureFlag('home-page-conversion') === 'test' ? (
+        <div className="col-span-12 py-40 flex flex-reverse">
+          <Card reverse={true} />
+        </div>
+      ) : (
+        <div>
+          <p className="text-5xl text-white">Normal</p>
+        </div>
+      )}
     </section>
   )
 }
