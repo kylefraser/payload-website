@@ -44,7 +44,6 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
             </div>
             <div className="flex flex-row gap-4">
               <div className="button-container button-alt relative"></div>
-              <div className="button-container button-alt relative"></div>
             </div>
           </div>
           {backgroundImage && (
@@ -67,7 +66,6 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
         alt="Bee"
         className="invert sepia mix-blend-exclusion animate-glide"
       />
-
       <div
         style={{
           background: `radial-gradient(circle at center,#A7FFA9  0,#090D01 20%,#090D01 100%)`,

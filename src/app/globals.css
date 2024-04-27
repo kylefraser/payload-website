@@ -15,7 +15,7 @@ html {
 .button-container {
   padding: 4px 8px;
   height: 54px;
-  width: 150px;
+  width: 250px;
   position: relative;
   border-radius: 50px;
   cursor: pointer;
@@ -29,7 +29,6 @@ html {
   inset: 2px;
   border-radius: 25px;
   z-index: 1;
-  transition: opacity 0.3s ease;
 }
 
 .button-container::before {
@@ -41,14 +40,25 @@ html {
   transform: translateX(-50%) translateY(-50%);
   z-index: 3;
   width: 140px;
+  transition: color 250ms ease-in-out;
 }
 
-.button-container:hover {
-  box-shadow: 0px 0px 8px rgba(100, 212, 107, 0.2);
+@keyframes boxpulse {
+  0%,
+  100% {
+    box-shadow: 0px 0px 8px rgba(100, 212, 107, 0);
+  }
+  50% {
+    box-shadow: 0px 0px 8px rgba(163, 251, 169, 0.3);
+  }
+}
+
+.button-container:hover::after {
+  animation: boxpulse 2s ease-in-out infinite;
 }
 
 .button-container:hover::before {
-  text-shadow: 0px 0px 4px rgba(100, 212, 107, 1);
+  color: #a3fba5;
 }
 
 @property --r {
