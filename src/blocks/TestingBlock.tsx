@@ -2,7 +2,7 @@
 
 import { useFeatureFlagVariantKey } from 'posthog-js/react'
 
-export const TestingBlock = () => {
+const TestingBlock = () => {
   const variant = useFeatureFlagVariantKey('home-page-conversion')
   if (variant == 'test') {
     return (
@@ -18,3 +18,5 @@ export const TestingBlock = () => {
     )
   }
 }
+
+export default TestingBlock

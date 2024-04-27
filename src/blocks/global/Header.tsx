@@ -29,13 +29,15 @@ export default async function Header() {
           className="brightness-0 dark:brightness-100"
         />
       </Link>
-      <ul className="flex flex-row gap-4 items-center">
-        {nav?.navLinks?.map((link: any, i: number) => (
-          <li key={link.label}>
-            <Link href={'/' + link.link}>{link.label}</Link>
-          </li>
-        ))}
-      </ul>
+      <nav>
+        <ul className="flex flex-row gap-4 items-center">
+          {nav?.navLinks?.map((link: any, i: number) => (
+            <li key={link.label}>
+              <Link href={'/' + link.link}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   )
 }
