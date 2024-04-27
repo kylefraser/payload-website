@@ -5,6 +5,7 @@ import PostHogClient from '@/app/posthog'
 export default async function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
   const posthog = PostHogClient()
   const flags = await posthog.getAllFlags(
+    //@ts-expect-error
     process.env.NEXT_PUBLIC_POSTHOG_KEY, // replace with a user's distinct ID
   )
   await posthog.shutdown()
