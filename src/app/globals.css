@@ -12,6 +12,23 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before {
+  background-image: url(/images/black-noise.webp);
+  background-repeat: repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  z-index: -1;
+  opacity: 0.2;
+}
+
+a:hover {
+  color: #a3fba5;
+}
+
 .button-container {
   padding: 4px 8px;
   height: 54px;
