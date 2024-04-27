@@ -43,8 +43,12 @@ html {
   width: 140px;
 }
 
-.button-container:hover::after {
-  background: #0a140aa1;
+.button-container:hover {
+  box-shadow: 0px 0px 8px rgba(100, 212, 107, 0.2);
+}
+
+.button-container:hover::before {
+  text-shadow: 0px 0px 4px rgba(100, 212, 107, 1);
 }
 
 @property --r {
