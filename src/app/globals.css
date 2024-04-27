@@ -12,7 +12,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body::before {
+.web::before {
   background-image: url(/images/black-noise.webp);
   background-repeat: repeat;
   position: absolute;
