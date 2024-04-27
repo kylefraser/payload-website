@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-const Card = () => {
+const Card = ({ reverse }: any) => {
   const ref = useRef<any>()
   const [menuPosition, setMenuPosition] = useState({
     top: 0,
@@ -35,6 +35,7 @@ const Card = () => {
           backgroundPosition: '-101vw -18vw',
           filter: 'blur(400px)',
           zIndex: '-1',
+          top: -300,
         }}
         className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-30"
       ></div>
@@ -46,6 +47,7 @@ const Card = () => {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
           backgroundSize: '100vw 100vw',
+          gridColumnStart: reverse ? '6' : '1',
         }}
       >
         The{' '}
@@ -60,38 +62,37 @@ const Card = () => {
         </span>{' '}
         for the New Wave of American Outdoor Enthusiast.
       </h2>
-      <div className="col-span-9 grid grid-cols-4 auto-rows-min gap-4">
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
-          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
-          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
-          <p className="text-white">
-            This is some long generic paragraph text that I'm just making up to fill in the space.
-          </p>
-          <a href="/">Learn more</a>
+      <div
+        className="col-span-9 grid grid-cols-4 auto-rows-min gap-4"
+        style={{ gridColumnStart: reverse ? '4' : '1' }}
+      >
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded">
+          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+          <div className="flex flex-col gap-4 mt-auto">
+            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
+            <a href="/">Learn more</a>
+          </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
-          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
-          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
-          <p className="text-white">
-            This is some long generic paragraph text that I'm just making up to fill in the space.
-          </p>
-          <a href="/">Learn more</a>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded">
+          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+          <div className="flex flex-col gap-4 mt-auto">
+            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
+            <a href="/">Learn more</a>
+          </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
-          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
-          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
-          <p className="text-white">
-            This is some long generic paragraph text that I'm just making up to fill in the space.
-          </p>
-          <a href="/">Learn more</a>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded">
+          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+          <div className="flex flex-col gap-4 mt-auto">
+            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
+            <a href="/">Learn more</a>
+          </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col gap-4 p-8">
-          <div className="w-20 h-20 bg-gray-dark-4 rounded mx-auto"></div>
-          <h3 className="text-green-dark-12 font-bold text-xl">This is a header</h3>
-          <p className="text-white">
-            This is some long generic paragraph text that I'm just making up to fill in the space.
-          </p>
-          <a href="/">Learn more</a>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded">
+          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+          <div className="flex flex-col gap-4 mt-auto">
+            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
+            <a href="/">Learn more</a>
+          </div>
         </div>
       </div>
       {/* TODO: Video */}

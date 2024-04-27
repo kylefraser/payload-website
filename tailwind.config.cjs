@@ -84,15 +84,19 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-outfit)'],
       },
-    },
-    keyframes: {
-      glide: {
-        '0%, 100%': { transform: 'translateX(-300px) translateY(-100px) rotate(10deg)' },
-        '50%': { transform: 'translateX(0px) translateY(0) rotate(-10deg)' },
+      keyframes: {
+        glide: {
+          '0%, 100%': {
+            transform: 'translateX(-300px) translateY(-100px) rotate(10deg)',
+          },
+          '50%': {
+            transform: 'translateX(0px) translateY(0) rotate(-10deg)',
+          },
+        },
       },
-    },
-    animation: {
-      glide: 'glide 5s ease-in-out infinite',
+      animation: {
+        glide: 'glide 5s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

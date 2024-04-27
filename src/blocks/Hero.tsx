@@ -63,6 +63,23 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
       <div className="col-span-12 py-40">
         <Card />
       </div>
+      <Image
+        src={'/images/bee.webp'}
+        width="100"
+        height="80"
+        alt="Bee"
+        className="sepia invert mix-blend-exclusion animate-glide"
+      />
+      <Image
+        src={'/images/bee.webp'}
+        width="100"
+        height="80"
+        alt="Bee"
+        className="sepia invert mix-blend-exclusion animate-pulse"
+      />
+      <div className="col-span-12 py-40 flex flex-reverse">
+        <Card reverse={true} />
+      </div>
     </section>
   )
 }
