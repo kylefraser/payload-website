@@ -11,3 +11,121 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.button-container {
+  padding: 4px 8px;
+  height: 54px;
+  width: 150px;
+  position: relative;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.button-container::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: #090d01;
+  inset: 2px;
+  border-radius: 25px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.button-container::before {
+  display: block;
+  position: absolute;
+  content: 'This is button';
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
+  width: 140px;
+}
+
+.button-container:hover::after {
+  background: #0a140aa1;
+}
+
+@property --r {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.button {
+  background: conic-gradient(from var(--r), #222 0%, #eee 10%, #222 20%);
+  animation: rotating 3s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    --r: 0deg;
+  }
+  100% {
+    --r: 360deg;
+  }
+}
+
+/* better version */
+
+@property --r2 {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --x {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+.button-alt {
+  background: conic-gradient(
+    from calc(var(--r2) - 80deg) at var(--x) 30px,
+    #090d01 0%,
+    #a3fba5 20%,
+    #090d01 25%
+  );
+  animation: -0.64s rotating2 3s linear infinite, -0.64s x 3s linear infinite;
+}
+@keyframes x {
+  /* w:h === 6:1 */
+  /* with a 80px x-margin */
+  0% {
+    --x: 26px;
+  }
+  /* 6/(6+3.14) * 50% */
+  32.82275711% {
+    --x: 130px;
+  }
+  50% {
+    --x: 130px;
+  }
+  /* 50% + 32.8% */
+  82.82275711% {
+    --x: 26px;
+  }
+  100% {
+    --x: 26px;
+  }
+}
+
+@keyframes rotating2 {
+  0% {
+    --r2: 0deg;
+  }
+  32.82275711% {
+    --r2: 0deg;
+  }
+  50% {
+    --r2: 180deg;
+  }
+  82.82275711% {
+    --r2: 180deg;
+  }
+  100% {
+    --r2: 360deg;
+  }
+}

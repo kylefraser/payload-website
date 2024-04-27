@@ -43,8 +43,8 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
               <p className="text-lg">{text}</p>
             </div>
             <div className="flex flex-row gap-4">
-              <Button>Primary</Button>
-              <Button outline>Secondary</Button>
+              <div className="button-container button-alt relative"></div>
+              <div className="button-container button-alt relative"></div>
             </div>
           </div>
           {backgroundImage && (
@@ -60,23 +60,28 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
           )}
         </>
       )}
+      <Image
+        src={'/images/bee.webp'}
+        width="100"
+        height="80"
+        alt="Bee"
+        className="invert sepia mix-blend-exclusion animate-glide"
+      />
+
+      <div
+        style={{
+          background: `radial-gradient(circle at center,#A7FFA9  0,#090D01 20%,#090D01 100%)`,
+          backgroundPosition: '-101vw -18vw',
+          filter: 'blur(400px)',
+          zIndex: '-1',
+          top: -300,
+        }}
+        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-30"
+      ></div>
       <div className="col-span-12 py-40">
         <Card />
       </div>
-      <Image
-        src={'/images/bee.webp'}
-        width="100"
-        height="80"
-        alt="Bee"
-        className="sepia invert mix-blend-exclusion animate-glide"
-      />
-      <Image
-        src={'/images/bee.webp'}
-        width="100"
-        height="80"
-        alt="Bee"
-        className="sepia invert mix-blend-exclusion animate-pulse"
-      />
+
       <div className="col-span-12 py-40 flex flex-reverse">
         <Card reverse={true} />
       </div>

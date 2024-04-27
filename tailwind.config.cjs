@@ -95,7 +95,7 @@ module.exports = {
         },
       },
       animation: {
-        glide: 'glide 5s ease-in-out infinite',
+        glide: 'glide 4s ease-in-out infinite, pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

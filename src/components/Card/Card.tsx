@@ -29,16 +29,6 @@ const Card = ({ reverse }: any) => {
 
   return (
     <div className="grid grid-cols-12 relative gap-y-10" ref={ref}>
-      <div
-        style={{
-          background: `radial-gradient(circle at center,#A7FFA9  0,#090D01 20%,#090D01 100%)`,
-          backgroundPosition: '-101vw -18vw',
-          filter: 'blur(400px)',
-          zIndex: '-1',
-          top: -300,
-        }}
-        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-30"
-      ></div>
       <h2
         className="text-6xl font-bold bg-clip-text col-span-7"
         style={{
