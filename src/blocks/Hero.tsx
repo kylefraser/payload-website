@@ -1,16 +1,40 @@
 'use client'
-import { Button } from '@/components/Button'
+
 import { Card } from '@/components/Card'
 import Image from 'next/image'
-import { useFeatureFlagVariantKey } from 'posthog-js/react'
 import dynamic from 'next/dynamic'
+import { motion } from 'framer-motion'
+import { useAnimateInView } from '../utils/useAnimateInView'
+
 const TestingBlock = dynamic(() => import('./TestingBlock'), {
   ssr: false,
 })
 
 export default function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
+  const sentence = {
+    hidden: {
+      opacity: 1,
+    },
+    visible: {
+      transition: {
+        opacity: 1,
+        delay: 0.25,
+        staggerChildren: 0.05,
+      },
+    },
+  }
+
+  const letter = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  }
+
   return (
-    <section className="container grid grid-cols-12 mx-auto py-40 px-6 gap-x-4 gap-y-20">
+    <section className="container grid grid-cols-12 mx-auto py-48 px-6 gap-x-4 gap-y-20">
       {layout === 'default' && (
         <>
           <div className="col-span-12 lg:col-span-6 xl:col-span-4">
@@ -31,8 +55,8 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
       )}
       {!layout && (
         <>
-          <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col justify-center items-center text-center gap-8">
-            <div className="flex flex-col gap-4">
+          <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col justify-center items-center text-center gap-16">
+            <div className="flex flex-col gap-8">
               <h1
                 className="text-7xl font-bold"
                 style={{
@@ -44,7 +68,24 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
                   textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)',
                 }}
               >
-                {heading}
+                <motion.div
+                  className="text-7xl font-bold"
+                  style={{
+                    color: '#64D46B',
+                    textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)',
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={sentence}
+                >
+                  {heading.split('').map((char: any, index: any) => {
+                    return (
+                      <motion.span key={char + '-' + index} variants={letter}>
+                        {char}
+                      </motion.span>
+                    )
+                  })}
+                </motion.div>
               </h1>
               <p className="text-lg">{text}</p>
             </div>

@@ -1,6 +1,6 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 // import { payloadCloud } from '@payloadcms/plugin-cloud'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { BlocksFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
@@ -24,6 +24,8 @@ import { Users } from './app/(payload)/collections/Users'
 import { Footer } from './app/(payload)/globals/Footer'
 import { Nav } from './app/(payload)/globals/Nav'
 import { Settings } from './app/(payload)/globals/Settings'
+
+import CallToAction from './blocks/CallToAction'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -89,7 +91,9 @@ export default buildConfig({
     // @ts-expect-error
     Footer,
   ],
-  editor: lexicalEditor({}),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [...defaultFeatures],
+  }),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

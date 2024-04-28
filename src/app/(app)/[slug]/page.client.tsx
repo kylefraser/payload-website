@@ -5,23 +5,23 @@ import { useLivePreview } from '@payloadcms/live-preview-react'
 import RenderBlocks from '@/utils/RenderBlocks'
 
 export const PageTemplate = ({ page, send }: any) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [description, setDescription] = useState('')
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [description, setDescription] = useState('')
 
   const { data } = useLivePreview({
     serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
     initialData: page,
   })
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault()
-    send(name, email, description)
-  }
+  // const handleSubmit = (event: any) => {
+  //   event.preventDefault()
+  //   send(name, email, description)
+  // }
 
   return (
     <div>
-      {data.title}
+      {/* {data.title}
       <form onSubmit={handleSubmit}>
         <input
           name="name"
@@ -48,7 +48,7 @@ export const PageTemplate = ({ page, send }: any) => {
           onChange={(e) => setDescription(e.target.value)}
         />
         <button type="submit">Send email</button>
-      </form>
+      </form> */}
       <RenderBlocks layout={data?.layout} />
     </div>
   )
