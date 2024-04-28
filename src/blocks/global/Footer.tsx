@@ -7,13 +7,13 @@ import { ThemeToggle } from '../../components/ThemeToggle'
 export default async function Footer() {
   const payload = await getPayload({ config })
 
-  const footer = await payload.findGlobal({
-    slug: 'footer',
-  })
+  let globals = [{ slug: 'footer' }, { slug: 'settings' }]
 
-  const settings = await payload.findGlobal({
-    slug: 'settings',
-  })
+  //@ts-expect-error
+  const data = await Promise.all(globals.map((global) => payload.findGlobal({ slug: global.slug })))
+
+  let footer = data.find((item: any) => item.globalType === 'footer')
+  let settings = data.find((item: any) => item.globalType === 'settings')
 
   return (
     <footer className="container grid grid-cols-12 mx-auto py-4 px-6">
@@ -34,6 +34,7 @@ export default async function Footer() {
         <ThemeToggle />
       </div>
       <ul className="col-start-12">
+        {/* @ts-expect-error */}
         {footer?.bottomNavLinks?.map((link: any, i: number) => (
           <li key={link.label}>
             <Link href={link.link}>{link.label}</Link>

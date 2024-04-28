@@ -5,6 +5,9 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export const HeaderTemplate = ({ data }: any) => {
+  let settings = data.find((item: any) => item.globalType === 'settings')
+  let nav = data.find((item: any) => item.globalType === 'nav')
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -14,16 +17,16 @@ export const HeaderTemplate = ({ data }: any) => {
     >
       <Link href={'/'}>
         <Image
-          src={data?.settings?.logo?.url}
-          width={data?.settings?.logo?.width}
-          height={data?.settings?.logo?.height}
-          alt={data?.settings?.logo?.alt}
+          src={settings?.logo?.url}
+          width={settings?.logo?.width}
+          height={settings?.logo?.height}
+          alt={settings?.logo?.alt}
           className="brightness-0 dark:brightness-100"
         />
       </Link>
       <nav>
         <ul className="flex flex-row gap-4 items-center">
-          {data?.nav?.navLinks?.map((link: any, i: number) => (
+          {nav?.navLinks?.map((link: any, i: number) => (
             <li key={link.label}>
               <Link href={'/' + link.link}>{link.label}</Link>
             </li>

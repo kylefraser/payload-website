@@ -5,15 +5,10 @@ import { HeaderTemplate } from './Header.client'
 export default async function Header() {
   const payload = await getPayload({ config })
 
-  const nav = await payload.findGlobal({
-    slug: 'nav',
-  })
+  let globals = [{ slug: 'settings' }, { slug: 'nav' }]
 
-  const settings = await payload.findGlobal({
-    slug: 'settings',
-  })
-
-  const data = { nav, settings }
+  //@ts-expect-error
+  const data = await Promise.all(globals.map((global) => payload.findGlobal({ slug: global.slug })))
 
   return <HeaderTemplate data={data} />
 }
