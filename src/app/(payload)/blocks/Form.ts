@@ -28,7 +28,7 @@ export const FormBlock = {
       type: 'richText',
       admin: {
         description: 'Content that will be shown above the form',
-        condition: (_, siblingData) => {
+        condition: (_: any, siblingData: any) => {
           if (siblingData.enableIntro) {
             return true
           } else {
