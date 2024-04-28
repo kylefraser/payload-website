@@ -17,6 +17,7 @@ export const Pages = {
     livePreview: {
       url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/${data.slug}`,
     },
+    useAsTitle: 'title',
   },
   fields: [
     {

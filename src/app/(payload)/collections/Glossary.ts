@@ -9,6 +9,12 @@ export const Glossary = {
   access: {
     read: () => true,
   },
+  admin: {
+    livePreview: {
+      url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/glossary/${data.slug}`,
+    },
+    useAsTitle: 'title',
+  },
   fields: [
     {
       name: 'title',

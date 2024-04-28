@@ -12,6 +12,12 @@ export const Events = {
   access: {
     read: () => true,
   },
+  admin: {
+    livePreview: {
+      url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/events/${data.slug}`,
+    },
+    useAsTitle: 'title',
+  },
   fields: [
     {
       name: 'title',

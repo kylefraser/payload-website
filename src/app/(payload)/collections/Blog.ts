@@ -13,6 +13,7 @@ export const Blog = {
     livePreview: {
       url: ({ data }: any) => `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/blog/${data.slug}`,
     },
+    useAsTitle: 'title',
   },
   fields: [
     {
