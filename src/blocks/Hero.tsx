@@ -69,11 +69,8 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
                 }}
               >
                 <motion.div
-                  className="text-7xl font-bold"
-                  style={{
-                    color: '#64D46B',
-                    textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)',
-                  }}
+                  className="text-7xl font-bold text-[#64D46B]"
+                  style={{ textShadow: '0px 0px  20px rgba(100, 212, 107,0.2)' }}
                   initial="hidden"
                   animate="visible"
                   variants={sentence}

@@ -13,16 +13,29 @@ export const FormBlock = {
       type: 'relationship',
       relationTo: 'forms',
       required: true,
+      admin: { description: 'Select a form to use' },
     },
     {
       name: 'enableIntro',
       label: 'Enable Intro Content',
       type: 'checkbox',
+      defaultValue: false,
+      admin: { description: 'Show content above the form' },
     },
     {
       name: 'introContent',
       label: 'Intro Content',
       type: 'richText',
+      admin: {
+        description: 'Content that will be shown above the form',
+        condition: (_, siblingData) => {
+          if (siblingData.enableIntro) {
+            return true
+          } else {
+            return false
+          }
+        },
+      },
     },
   ],
 }

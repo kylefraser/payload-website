@@ -35,6 +35,7 @@ export const TwoColumn = {
           value: 'reverse',
         },
       ],
+      admin: { description: 'Reverse the order of the columns' },
     },
   ],
 }

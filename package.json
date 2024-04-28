@@ -16,6 +16,9 @@
   "engines": {
     "node": ">=18.19.0"
   },
+  "resolutions": {
+    "sharp": "^0.32.6"
+  },
   "dependencies": {
     "@next/env": "^14.2.2",
     "@payloadcms/db-mongodb": "beta",
@@ -41,6 +44,10 @@
     "nextra-theme-docs": "latest",
     "nodemailer": "^6.9.13",
     "payload": "beta",
+    "payload-blurhash-plugin": "^2.0.2",
+    "payload-hash-upload": "^1.0.0",
+    "payload-label-popover": "^1.0.1",
+    "payload-webp": "^1.1.6",
     "posthog-js": "^1.130.0",
     "posthog-node": "^4.0.1",
     "react": "^18.2.0",

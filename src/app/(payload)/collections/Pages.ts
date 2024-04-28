@@ -22,6 +22,7 @@ export const Pages = {
     {
       name: 'title',
       label: 'Title',
+      admin: { description: 'This is a title field' },
       type: 'text',
       required: true,
     },
@@ -30,6 +31,7 @@ export const Pages = {
       label: 'Slug',
       type: 'text',
       required: true,
+      unique: true,
       admin: {
         position: 'sidebar',
       },
@@ -41,12 +43,17 @@ export const Pages = {
       name: 'excerpt',
       label: 'Excerpt',
       type: 'textarea',
+      admin: { description: 'Excerpt used to generate Meta Description' },
     },
     {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
       blocks: [Hero, TwoColumn, SimpleRichText, FormBlock],
+      admin: {
+        description:
+          'A collection of blocks to build a page. Hint: use Live Preview to view edits in realtime',
+      },
     },
   ],
   versions: {

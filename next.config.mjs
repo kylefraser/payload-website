@@ -1,5 +1,5 @@
-import nextra from 'nextra'
 import { withPayload } from '@payloadcms/next/withPayload'
+import nextra from 'nextra'
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
