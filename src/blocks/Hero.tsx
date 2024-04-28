@@ -1,14 +1,14 @@
+'use client'
+import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
-import PostHogClient from '@/app/posthog'
+import { useFeatureFlagVariantKey } from 'posthog-js/react'
+import dynamic from 'next/dynamic'
+const TestingBlock = dynamic(() => import('./TestingBlock'), {
+  ssr: false,
+})
 
-export default async function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
-  const posthog = PostHogClient()
-  const flags = await posthog.getAllFlags(
-    //@ts-expect-error
-    process.env.NEXT_PUBLIC_POSTHOG_KEY, // replace with a user's distinct ID
-  )
-  await posthog.shutdown()
+export default function Hero({ heading, text, backgroundImage, layout, ...props }: any) {
   return (
     <section className="container grid grid-cols-12 mx-auto py-40 px-6 gap-x-4 gap-y-20">
       {layout === 'default' && (
@@ -86,15 +86,7 @@ export default async function Hero({ heading, text, backgroundImage, layout, ...
         <Card />
       </div>
       <div className="col-span-12 py-40 flex flex-reverse">
-        {flags['home-page-conversion'] == 'test' ? (
-          <a href="http://" className="text-5xl text-white">
-            Go to test
-          </a>
-        ) : (
-          <a href="http://" className="text-xl text-white">
-            Go home
-          </a>
-        )}
+        <TestingBlock />
       </div>
     </section>
   )
