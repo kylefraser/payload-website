@@ -11,8 +11,12 @@ export const PageTemplate = ({ page }: any) => {
 
   return (
     <div>
-      {data.title}
-      <RichTextParser content={data.body} />
+      <div className="container grid grid-cols-12 mx-auto py-20 px-6 w-full">
+        <h1 className="text-6xl font-bold col-span-6 mb-16">{data.title}</h1>
+        <div className="col-span-12">
+          <RichTextParser content={data.body} />
+        </div>
+      </div>
     </div>
   )
 }

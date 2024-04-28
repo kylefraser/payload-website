@@ -13,6 +13,7 @@ const TestingBlock = () => {
   } else {
     return (
       <div>
+        <h2 className="text-xl">This is an AB Testing block from Posthog events.</h2>
         <p>This is normal</p>
       </div>
     )

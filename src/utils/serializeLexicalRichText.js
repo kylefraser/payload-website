@@ -1,6 +1,7 @@
 import escapeHTML from 'escape-html'
 import React, { Fragment } from 'react'
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import CallToAction from '../blocks/CallToAction'
 
 export const IS_BOLD = 1
 export const IS_ITALIC = 1 << 1
@@ -154,6 +155,19 @@ export default function serializeLexicalRichText({ children, customClassNames, p
               {serializeLexicalRichText({ children: node.children })}
             </a>
           )
+
+        case 'block':
+          let blockType = node?.fields?.blockType
+          if (blockType === 'callToAction') {
+            return (
+              <CallToAction
+                text={node?.fields?.text}
+                heading={node?.fields?.heading}
+                buttonLabel={node?.fields?.buttonLabel}
+                link={node?.fields?.link?.value?.slug}
+              />
+            )
+          }
 
         default:
           return (

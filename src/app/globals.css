@@ -12,6 +12,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  position: relative;
+}
+
 .web::before {
   background-image: url(/images/black-noise.webp);
   background-repeat: repeat;
@@ -23,6 +27,18 @@ html {
   content: '';
   z-index: -1;
   opacity: 0.2;
+}
+
+.web-noise {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.2;
+  background-image: repeating-linear-gradient(35deg, black, transparent 100px),
+    repeating-linear-gradient(115deg, black, transparent 100px);
 }
 
 a:hover {

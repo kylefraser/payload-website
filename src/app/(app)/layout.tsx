@@ -10,6 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ scrollbarGutter: 'stable' }}>
       <body className="web bg-white dark:bg-[#090D01] text-black dark:text-white">
+        <div className="web-noise"></div>
         <Providers>
           <Header />
           {children}

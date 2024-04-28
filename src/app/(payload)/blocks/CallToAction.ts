@@ -24,7 +24,7 @@ export const CallToAction = {
       name: 'link',
       label: 'Link',
       type: 'relationship',
-      relationTo: ['pages', 'blogs', 'glossaries'],
+      relationTo: ['pages', 'blog', 'glossary'],
     },
   ],
 }
