@@ -118,7 +118,7 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
           zIndex: '-1',
           top: -300,
         }}
-        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-30"
+        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-60"
       ></div>
       <div className="col-span-12 py-40">
         <Card />

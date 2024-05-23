@@ -37,8 +37,6 @@ body {
   left: 0;
   z-index: -1;
   opacity: 0.2;
-  background-image: repeating-linear-gradient(35deg, black, transparent 100px),
-    repeating-linear-gradient(115deg, black, transparent 100px);
 }
 
 a:hover {
@@ -176,4 +174,13 @@ a:hover {
   100% {
     --r2: 360deg;
   }
+}
+
+.card:hover {
+  -webkit-box-reflect: below 0
+    radial-gradient(circle at 50% 190%, #000000 35%, #0000000f 60%, #00000000 65%);
+}
+
+.card:not(:hover) {
+  opacity: 0.6;
 }
