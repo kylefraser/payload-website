@@ -56,29 +56,53 @@ const Card = ({ reverse }: any) => {
         className="col-span-9 grid grid-cols-4 auto-rows-min gap-4"
         style={{ gridColumnStart: reverse ? '4' : '1' }}
       >
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded card">
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+          <Image
+            src="/images/deer.jpeg"
+            alt="deer"
+            layout="fill"
+            className="absolute top-0 left-0 right-0 bottom-0 -z-[1] object-cover hue-rotate-60 mix-blend-difference object-right opacity-20"
+          />
+          <p className="text-green-dark-12 font-mono text-sm">Guides</p>
+          <div className="flex flex-col gap-4 mt-auto">
+            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
+            <a href="/">Learn more</a>
+          </div>
+        </div>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+          <Image
+            src="/images/beekeeper.jpeg"
+            alt="beekeeper"
+            layout="fill"
+            className="absolute top-0 left-0 right-0 bottom-0 -z-[1] object-cover hue-rotate-60 mix-blend-difference object-right opacity-20"
+          />
           <p className="text-green-dark-12 font-mono text-sm">Courses</p>
           <div className="flex flex-col gap-4 mt-auto">
             <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
             <a href="/">Learn more</a>
           </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded card">
-          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+          <Image
+            src="/images/flyfish.jpeg"
+            alt="flyfish"
+            layout="fill"
+            className="absolute top-0 left-0 right-0 bottom-0 -z-[1] object-cover hue-rotate-[260deg] mix-blend-difference opacity-20"
+          />
+          <p className="text-green-dark-12 font-mono text-sm">Access</p>
           <div className="flex flex-col gap-4 mt-auto">
             <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
             <a href="/">Learn more</a>
           </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded card">
-          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
-          <div className="flex flex-col gap-4 mt-auto">
-            <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
-            <a href="/">Learn more</a>
-          </div>
-        </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded card">
-          <p className="text-green-dark-12 font-mono text-sm">Courses</p>
+        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+          <Image
+            src="/images/kayak.jpeg"
+            alt="kayak"
+            layout="fill"
+            className="absolute top-0 left-0 right-0 bottom-0 -z-[1] object-cover hue-rotate-[277deg] mix-blend-difference opacity-20"
+          />
+          <p className="text-green-dark-12 font-mono text-sm">Epics</p>
           <div className="flex flex-col gap-4 mt-auto">
             <h3 className="text-green-dark-12 font-bold text-xl">Get training</h3>
             <a href="/">Learn more</a>

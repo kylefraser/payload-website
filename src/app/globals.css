@@ -176,11 +176,12 @@ a:hover {
   }
 }
 
-.card:hover {
+.reflect-card:hover {
   -webkit-box-reflect: below 0
     radial-gradient(circle at 50% 190%, #000000 35%, #0000000f 60%, #00000000 65%);
+  box-shadow: 0px 0px 2px 0 rgba(163, 251, 169, 1), 0px 0px 32px -8px rgba(163, 251, 169, 0.07);
 }
 
-.card:not(:hover) {
-  opacity: 0.6;
+.reflect-card:not(:hover) {
+  opacity: 0.7;
 }
