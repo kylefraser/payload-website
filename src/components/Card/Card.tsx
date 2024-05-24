@@ -56,7 +56,7 @@ const Card = ({ reverse }: any) => {
         className="col-span-9 grid grid-cols-4 auto-rows-min gap-4"
         style={{ gridColumnStart: reverse ? '4' : '1' }}
       >
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+        <div className="bg-green-dark-2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
           <Image
             src="/images/deer.jpeg"
             alt="deer"
@@ -69,7 +69,7 @@ const Card = ({ reverse }: any) => {
             <a href="/">Learn more</a>
           </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+        <div className="bg-green-dark-2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
           <Image
             src="/images/beekeeper.jpeg"
             alt="beekeeper"
@@ -82,7 +82,7 @@ const Card = ({ reverse }: any) => {
             <a href="/">Learn more</a>
           </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+        <div className="bg-green-dark-2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
           <Image
             src="/images/flyfish.jpeg"
             alt="flyfish"
@@ -95,7 +95,7 @@ const Card = ({ reverse }: any) => {
             <a href="/">Learn more</a>
           </div>
         </div>
-        <div className="bg-green-dark-a2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
+        <div className="bg-green-dark-2 w-full border-[#0F1A10] border-r flex flex-col space-between gap-40 p-8 rounded reflect-card relative overflow-hidden">
           <Image
             src="/images/kayak.jpeg"
             alt="kayak"

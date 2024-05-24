@@ -120,10 +120,16 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
         }}
         className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-60"
       ></div>
-      <div className="col-span-12 py-40">
+      <Image
+        src="/images/center.jpg"
+        layout="fill"
+        alt="jungle"
+        className="absolute top-0 left-0 right-0 bottom-0 -z-[1] mix-blend-multiply opacity-60 object-cover"
+      />
+      <div className="col-span-12 py-40 relative z-10">
         <Card />
       </div>
-      <div className="col-span-12 py-40 flex flex-reverse">
+      <div className="col-span-12 py-40 flex flex-reverse relative z-10">
         <TestingBlock />
       </div>
     </section>
