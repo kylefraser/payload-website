@@ -25,8 +25,8 @@ body {
   bottom: 0;
   left: 0;
   content: '';
-  z-index: -1;
-  opacity: 0.2;
+  z-index: -2;
+  opacity: 0.1;
 }
 
 .web-noise {
@@ -35,8 +35,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  opacity: 0.2;
+  z-index: -2;
+  opacity: 0.1;
 }
 
 a:hover {
@@ -178,13 +178,16 @@ a:hover {
 
 .reflect-card:hover {
   -webkit-box-reflect: below 0
-    radial-gradient(circle at 50% 190%, #000000 35%, #0000000f 60%, #00000000 65%);
-  box-shadow: 0px 0px 2px 0 rgba(163, 251, 169, 1), 0px 0px 32px -8px rgba(163, 251, 169, 0.07);
+    radial-gradient(circle at 50% 200%, #000000 35%, #0000000f 60%, #00000000 65%);
+  box-shadow: 0px 0px 4px 0 rgba(163, 251, 169, 1), 0px 0px 20px 0 rgb(219, 255, 221, 0.5),
+    0px 0px 60px 0 rgb(219, 255, 221, 0.2), 0px 0px 120px 0px rgb(0, 0, 0, 1);
   cursor: pointer;
+  z-index: 20;
 }
 
 .reflect-card:hover img {
   opacity: 0.4;
+  filter: none;
 }
 
 .reflect-card:not(:hover) {

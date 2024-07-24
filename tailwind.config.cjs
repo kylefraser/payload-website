@@ -93,9 +93,35 @@ module.exports = {
             transform: 'translateX(0px) translateY(0) rotate(-10deg)',
           },
         },
+        sideways: {
+          '0%': {
+            transform: 'translateX(-600px)',
+          },
+          '25%': {
+            transform: 'translateY(-200px)',
+          },
+          '50%': {
+            transform: 'translateX(600px)',
+          },
+          '75%': {
+            transform: 'translateY(200px)',
+          },
+          '100%': {
+            transform: 'translateX(-600px)',
+          },
+        },
+        vertical: {
+          '0%, 100%': {
+            transform: 'translateY(-200px)',
+          },
+          '50%': {
+            transform: 'translateY(200px)',
+          },
+        },
       },
       animation: {
         glide: 'glide 4s ease-in-out infinite, pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        sideways: 'sideways 30s linear infinite',
       },
     },
   },

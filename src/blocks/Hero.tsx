@@ -115,19 +115,44 @@ export default function Hero({ heading, text, backgroundImage, layout, ...props 
           background: `radial-gradient(circle at center,#A7FFA9  0,#090D01 20%,#090D01 100%)`,
           backgroundPosition: '-101vw -18vw',
           filter: 'blur(400px)',
-          zIndex: '-1',
+          zIndex: '-3',
           top: -300,
         }}
-        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw] opacity-60"
+        className="absolute top-0 left-0 right-0 bottom-0 w-[100vw] h-[100vw] translate-x-[-25vw]"
       ></div>
-      <Image
-        src="/images/center.jpg"
-        layout="fill"
-        alt="jungle"
-        className="absolute top-0 left-0 right-0 bottom-0 -z-[1] mix-blend-multiply opacity-60 object-cover"
-      />
-      <div className="col-span-12 py-40 relative z-10">
+      <div className="bg-[#090D01] absolute top-0 left-0 right-0 bottom-0 -z-[1] !h-[200vh] mix-blend-multiply opacity-80">
+        <Image
+          src="/images/center.webp"
+          layout="fill"
+          alt="jungle"
+          priority
+          className="absolute top-0 left-0 right-0 bottom-0 object-cover  opacity-60"
+        />
+      </div>
+      <div className="col-span-12 pt-40 pb-20 relative z-10">
         <Card />
+      </div>
+      <div className="col-span-12 py-20 relative z-10 text-center">
+        <h4
+          className="text-sm font-bold text-green-dark-11 mb-4"
+          style={{ textShadow: '0px 0px  20px rgba(100, 212, 107,0.6)' }}
+        >
+          Some text here
+        </h4>
+        <h2 className="text-2xl font-bold">Some Text here too</h2>
+        <p className="text-lg text-green text-green-dark-12">And more text would be right here.</p>
+        <div
+          className="w-10/12 mt-20 mx-auto bg-dark-green-12 border-[20px] border-green-dark-1 aspect-video rounded-"
+          style={{
+            boxShadow:
+              '0 0 10px 0 rgba(0, 0, 0,1), 0 0 20px 0 rgba(100, 212, 107,0.2), -16px 16px 80px 16px rgba(213, 250, 216, 0.1), 16px -16px 80px 16px rgba(213, 250, 216, 0.1)',
+          }}
+        >
+          <video src="/videos/recording.mp4" controls></video>
+        </div>
+      </div>
+      <div className="col-span-12 py-20 relative z-10 text-center">
+        <div className="w-full h-[1000px] bg-green-dark-1"></div>
       </div>
       <div className="col-span-12 py-40 flex flex-reverse relative z-10">
         <TestingBlock />
