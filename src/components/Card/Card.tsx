@@ -51,7 +51,7 @@ const Card = ({ reverse }: any) => {
           >
             next-generation platform
           </span>{' '}
-          for the New Wave of American Outdoor Enthusiast.
+          for the New Wave of Outdoor Enthusiast.
         </h2>
       </div>
       <div className="col-span-4 col-start-5 text-center">
